@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота - Варіант 0</title>
+</head>
+<body>
+
+    <h1>Лабораторна робота: Основи HTML</h1>
+
+    <h2>Завдання №1</h2>
+    <p>
+        Основна <strong>тригонометрична тотожність</strong>:<br>
+        cos<sup>2</sup>&alpha; + sin<sup>2</sup>&alpha; = 1<br>
+        Приклад суворої нерівності: &alpha;&lt;&beta;.<br>
+        Нестрога нерівність &alpha;&le;&beta; означає, що або &alpha;&lt;&beta;, або &alpha;=&beta;.
+    </p>
+
+    <hr>
+
+    <h2>Завдання №2</h2>
+    <ol>
+        <li>Яка мова використовується для створення структури веб-сторінок?
+            <ul>
+                <li><label><input type="radio" name="q1" value="wrong"> Python</label></li>
+                <li><label><input type="radio" name="q1" value="correct"> HTML</label></li>
+                <li><label><input type="radio" name="q1" value="wrong"> C++</label></li>
+            </ul>
+        </li>
+        <li>Який тег використовується для створення абзацу?
+            <ul>
+                <li><label><input type="radio" name="q2" value="correct"> &lt;p&gt;</label></li>
+                <li><label><input type="radio" name="q2" value="wrong"> &lt;div&gt;</label></li>
+                <li><label><input type="radio" name="q2" value="wrong"> &lt;h1&gt;</label></li>
+            </ul>
+        </li>
+    </ol>
+
+    <button type="button" onclick="checkQuiz()">Перевірити відповіді</button>
+    <p id="quiz-result"><strong></strong></p>
+
+    <hr>
+
+    <h2>Завдання №3</h2>
+
+    <table border="1">
+        <caption>Таблиця з даними про успішність 3-х студентів з 3-го курсу</caption>
+        <thead>
+            <tr>
+                <th>ПІБ студента</th>
+                <th>Бази даних</th>
+                <th>Веб-програмування</th>
+                <th>Комп'ютерні мережі</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Герасименко І.І.</td>
+                <td>95</td>
+                <td>88</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>Олійник К.О.</td>
+                <td>75</td>
+                <td>80</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>Гавій С.С.</td>
+                <td>100</td>
+                <td>95</td>
+                <td>98</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Завдання №4</h2>
+    <form action="#" method="POST">
+        <fieldset>
+            <legend>Реєстраційні дані</legend>
+            <label for="username">Ім'я користувача:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            
+            <label for="email">Електронна пошта:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="pwd">Пароль:</label>
+            <input type="password" id="pwd" name="pwd" required><br><br>
+
+            <label for="course">Ваш курс:</label>
+            <select id="course" name="course">
+                <option value="1">1 курс</option>
+                <option value="2">2 курс</option>
+                <option value="3" selected>3 курс</option>
+                <option value="4">4 курс</option>
+            </select><br><br>
+            
+            <input type="submit" value="Зареєструватися">
+            <input type="reset" value="Очистити форму">
+        </fieldset>
+    </form>
+
+    <hr>
+
+    <h2>Завдання №5</h2>
+    <a href="https://nure.ua/en/" target="_blank">
+        <img src="stud-2026-en.jpg" alt="Банер з переходом на офіційний сайт" width="400" height="100">
+    </a>
+
+    <script>
+        function checkQuiz() {
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const resultEl = document.getElementById('quiz-result').firstChild;
+
+            if (!q1 || !q2) {
+                resultEl.textContent = "Будь ласка, оберіть відповідь на обидва питання!";
+                return;
+            }
+
+            let text = "Результат: ";
+            text += (q1.value === "correct") ? "1 питання — Вірно" : "1 питання — Неправильно (правильно: HTML). ";
+            text += (q2.value === "correct") ? "2 питання — Вірно" : "2 питання — Неправильно (правильно: <p>).";
+            
+            resultEl.textContent = text;
+        }
+    </script>
+
+</body>
+</html>
